@@ -24,3 +24,8 @@ end)
 vim.keymap.set("n", "<Right>", function()
   print("Use l, you coward!")
 end)
+
+-- Easy terminal escape (way better than Ctrl+\ Ctrl+n)
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode with jk" })
+vim.keymap.set("t", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode with Ctrl+c" })
