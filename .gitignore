@@ -1,0 +1,51 @@
+# Lazy.nvim plugin directory and lock file
+lazy-lock.json
+.repro/
+debug.log
+
+# LazyVim state and cache
+.neoconf.json
+undodir/
+
+# LSP and Mason installed packages
+mason/
+lsp_servers/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+.netrwhist
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Log files
+*.log
+
+# Session files
+Session.vim
+.session
+
+# Swap files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
