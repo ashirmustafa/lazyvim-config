@@ -29,3 +29,14 @@ end)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode with jk" })
 vim.keymap.set("t", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode with Ctrl+c" })
+
+-- Move lines up/down
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+-- Tab navigation with Tab+h/l
+vim.keymap.set("n", "<Tab>h", ":bprevious<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<Tab>l", ":bnext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<Tab>q", ":bdelete<CR>", { desc = "Close tab" })
