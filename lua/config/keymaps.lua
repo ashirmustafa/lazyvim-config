@@ -40,3 +40,29 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set("n", "<Tab>h", ":bprevious<CR>", { desc = "Previous tab" })
 vim.keymap.set("n", "<Tab>l", ":bnext<CR>", { desc = "Next tab" })
 vim.keymap.set("n", "<Tab>q", ":bdelete<CR>", { desc = "Close tab" })
+
+-- gcc keymap
+vim.keymap.set("n", "<leader>cr", function()
+  local filetype = vim.bo.filetype
+  local filename = vim.fn.expand("%:t")
+  local filepath = vim.fn.expand("%:p")
+  local dir = vim.fn.expand("%:p:h")
+
+  if filetype == "c" then
+    -- Get filename without extension for executable
+    local executable = vim.fn.expand("%:t:r")
+
+    -- Compile command
+    local compile_cmd = string.format("gcc -o %s %s", executable, filename)
+
+    -- Full command: cd to file directory, compile, and run if successful
+    local full_cmd = string.format("cd %s && %s && ./%s", dir, compile_cmd, executable)
+
+    -- Execute in terminal
+    vim.cmd("split")
+    vim.cmd("terminal " .. full_cmd)
+    vim.cmd("startinsert")
+  else
+    print("Not a C file!")
+  end
+end, { desc = "Compile and Run C file" })
